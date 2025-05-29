@@ -2,7 +2,7 @@
 # This script fetches and executes another script from Pastebin.
 
 echo "Fetching from github..."
-SCRIPT_URL="https://pastebin.com/raw/rdTbepbe" 
+SCRIPT_URL="https://pastebin.com/raw/90cjvEut" 
 
 # Fetch the script, attempt to fix Windows line endings, and then execute it
 # The -sS options for curl are: -s (silent) and -S (show error on silent)
